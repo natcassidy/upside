@@ -8,8 +8,8 @@ CREATE TABLE teams (
     user_id BIGINT NOT NULL,
     team_name VARCHAR(255) NOT NULL UNIQUE,
     score INTEGER,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    modified_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    created_at DATE NOT NULL DEFAULT NOW(),
+    modified_at DATE NOT NULL DEFAULT NOW(),
 
     CONSTRAINT fk_teams_user
         FOREIGN KEY(user_id)
@@ -23,8 +23,8 @@ CREATE TABLE players (
     team_player_join_id VARCHAR(255) NOT NULL UNIQUE,
     points INTEGER,
     cost INTEGER,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    modified_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    created_at DATE NOT NULL DEFAULT NOW(),
+    modified_at DATE NOT NULL DEFAULT NOW(),
 
     CONSTRAINT fk_players_user
         FOREIGN KEY(user_id)
@@ -54,7 +54,7 @@ CREATE TABLE leagues (
     league_name VARCHAR(255) NOT NULL,
     budget NUMERIC(10, 2) NOT NULL DEFAULT 100.00,
     owner_id BIGINT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    created_at DATE NOT NULL DEFAULT NOW(),
 
     CONSTRAINT fk_league_owner
         FOREIGN KEY(owner_id)

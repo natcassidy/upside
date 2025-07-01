@@ -2,9 +2,11 @@ package com.upside.upside.service;
 
 import com.upside.upside.data.TeamRepository;
 import com.upside.upside.service.dto.Team;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class TeamServiceImpl implements TeamService {
 
     TeamRepository teamRepository;

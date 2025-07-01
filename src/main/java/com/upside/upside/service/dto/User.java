@@ -1,28 +1,10 @@
 package com.upside.upside.service.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.upside.upside.data.Team;
+import lombok.Data;
 
-import java.math.BigDecimal;
-
-@Entity
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
+@Data
 public class User {
-    @Id
-    BigDecimal id;
-
-    @Column(name = "email")
+    Long id;
     String email;
-
-    @OneToOne(mappedBy = "user")
-    Team team;
 }

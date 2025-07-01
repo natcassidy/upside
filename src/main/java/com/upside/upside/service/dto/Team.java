@@ -1,5 +1,6 @@
 package com.upside.upside.service.dto;
 
+import com.upside.upside.data.User;
 import lombok.Data;
 
 @Data

@@ -1,13 +1,8 @@
 package com.upside.upside.data;
 
-import com.upside.upside.service.dto.User;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -32,6 +27,8 @@ public class Team {
     @Column(name = "modified_at")
     LocalDate modifiedAt;
 
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     User user;
