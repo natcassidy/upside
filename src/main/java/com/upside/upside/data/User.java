@@ -19,4 +19,7 @@ public class User {
 
     @Column(name = "email")
     String email;
+
+    @OneToOne(mappedBy = "user")
+    Team team;
 }
