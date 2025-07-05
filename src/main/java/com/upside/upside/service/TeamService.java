@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface TeamService {
     Optional<Team> getTeam(int id);
+    Optional<Team> updateTeam(Team team);
 }

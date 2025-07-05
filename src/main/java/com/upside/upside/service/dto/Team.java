@@ -1,11 +1,3 @@
 package com.upside.upside.service.dto;
-
-import lombok.Data;
-
-@Data
-public class Team {
-    private Long id;
-    private String teamName;
-    private Integer score;
-    private User user;
+public record Team(Long id, String teamName, Integer score, User user) {
 }

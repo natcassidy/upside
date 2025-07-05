@@ -2,6 +2,7 @@ package com.upside.upside.controller;
 
 import com.upside.upside.service.TeamService;
 import com.upside.upside.service.dto.Team;
+import com.upside.upside.service.dto.User;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,7 @@ public class TeamControllerTests {
 
     @Test
     public void testGetTeam_returnSuccess() throws Exception {
-        Team team = new Team();
-        team.setTeamName("Test");
-        team.setId(1l);
+        Team team = new Team(1l, "Test", 1, new User());
         when(teamService.getTeam(anyInt())).thenReturn(Optional.of(team));
 
         mockMvc.perform(get("/teams/1"))

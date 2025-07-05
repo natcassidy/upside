@@ -5,5 +5,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface TeamMapper {
-    Team sourceToDestination(com.upside.upside.data.Team team);
+    Team convertToDto(com.upside.upside.data.Team team);
+    com.upside.upside.data.Team convertToEntity(Team team);
 }

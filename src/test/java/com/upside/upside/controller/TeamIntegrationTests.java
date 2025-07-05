@@ -1,6 +1,7 @@
 package com.upside.upside.controller;
 
 import com.upside.upside.service.dto.Team;
+import com.upside.upside.service.dto.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,5 +26,16 @@ public class TeamIntegrationTests {
 
         assertTrue(team.hasBody());
         assertTrue(!team.getStatusCode().isError());
+    }
+
+    @Test
+    @Sql("/sql/test_team.sql")
+    public void testUpdateTeam_success() {
+        User user = new User();
+        Team team = new Team(1l, "testTeam", 1, user);
+        ResponseEntity<Team> teamResponseEntity = restTemplate.postForEntity("/teams", team, Team.class);
+
+        assertTrue(!teamResponseEntity.getStatusCode().isError());
+        assertTrue(!teamResponseEntity.getBody().teamName().equals("testTeam"));
     }
 }

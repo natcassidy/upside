@@ -28,6 +28,17 @@ public class TeamController {
         }
     }
 
+    @PostMapping
+    public ResponseEntity<Team> updateTeam(@RequestBody Team team) {
+        Optional<Team> teamResponse = teamService.updateTeam(team);
+
+        if(teamResponse.isPresent()) {
+            return ResponseEntity.ok().body(teamResponse.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 //    @PutMapping("/addPlayers")
 //    public ResponseEntity<Team> addPlayer(@RequestBody AddPlayerRequest addPlayerRequest) {
 //
